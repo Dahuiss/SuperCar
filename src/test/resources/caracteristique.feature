@@ -1,4 +1,4 @@
-Feature:US_002 - Vérifier les caractéristiques d'une voiture
+Feature: US_002 - Vérifier les caractéristiques d'une voiture
   EN TANT QUE conducteur de Mercedes 300 SL
   Je VEUX pouvoir vérifier ma vitesse de pointe
   AFIN DE m'assurer que j'adopte une conduite responsable

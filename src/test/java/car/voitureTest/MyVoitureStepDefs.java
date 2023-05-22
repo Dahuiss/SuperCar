@@ -7,7 +7,7 @@ import car.voiture.Voiture;
 
 import static org.junit.Assert.assertEquals;
 
-public class MyVoitureStepdefs {
+public class MyVoitureStepDefs {
     private Voiture voiture;
     private Voiture voiture1 = new Voiture();
 

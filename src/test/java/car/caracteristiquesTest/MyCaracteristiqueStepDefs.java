@@ -7,7 +7,7 @@ import io.cucumber.java.en.When;
 
 import static org.junit.Assert.assertEquals;
 
-public class MyCaracteristiqueStepdefs {
+public class MyCaracteristiqueStepDefs {
 
     private Caracteristique caracteristique;
     private final Caracteristique caracteristique1 = new Caracteristique();
