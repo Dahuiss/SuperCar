@@ -2,6 +2,7 @@ package singleton;
 
 import car.voiture.Voiture;
 import org.junit.jupiter.api.Test;
+import singleton.BatSingleton;
 import superhero.SuperHero;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -30,7 +31,7 @@ public class BatSingletonTest {
 
         // Assert
         assertEquals("Batman", batman.getNom());
-        assertEquals("Vol", batman.getPouvoir());
+        assertEquals("Voler", batman.getPouvoir());
         assertEquals(10000, batman.getNiveau());
     }
 
