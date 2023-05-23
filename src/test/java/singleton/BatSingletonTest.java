@@ -47,4 +47,5 @@ public class BatSingletonTest {
         assertEquals("Batmobile", batmobile.getOwner());
         assertEquals(2022, batmobile.getAnnee());
     }
+
 }

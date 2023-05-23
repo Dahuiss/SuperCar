@@ -78,8 +78,6 @@ public class SuperHeroTest
         hero = null;
     }
 
-
-
 }
 
 

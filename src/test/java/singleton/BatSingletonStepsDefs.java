@@ -1,91 +1,56 @@
 package singleton;
 
+import car.voiture.Voiture;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import static org.junit.jupiter.api.Assertions.assertSame;
+import org.junit.jupiter.api.Assertions;
+import superhero.SuperHero;
 
 public class BatSingletonStepsDefs {
-    private BatSingleton batSingleton;
+    private BatSingleton instance;
+    private SuperHero superhero;
+    private Voiture car;
 
-    @Given("no instance of BatSingleton has been retrieved before")
-    public void no_instance_of_bat_singleton_has_been_retrieved_before() {
-        batSingleton = null;
-    }
 
-    @When("I retrieve the instance of BatSingleton")
-    public void i_retrieve_the_instance_of_bat_singleton() {
-        batSingleton = BatSingleton.getInstance();
+    @Given("the BatSingleton instance is created")
+    public void the_bat_singleton_instance_is_created() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
     }
-
-    @Then("I should get the same instance each time")
-    public void i_should_get_the_same_instance_each_time() {
-        BatSingleton newInstance = BatSingleton.getInstance();
-        assertSame(batSingleton, newInstance);
+    @When("I get the superhero")
+    public void i_get_the_superhero() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
     }
-
-    @Given("an instance of BatSingleton has been retrieved before")
-    public void an_instance_of_bat_singleton_has_been_retrieved_before() {
-        batSingleton = BatSingleton.getInstance();
-        assertSame(batSingleton, BatSingleton.getInstance());
+    @Then("the superhero's name should be {string}")
+    public void the_superhero_s_name_should_be(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
     }
-    @When("I retrieve {String} from BatSingleton")
-    public void i_retrieve_from_bat_singleton(String string) {
-        switch (string) {
-            case "SuperHero":
-                batSingleton.getSuperHero();
-                break;
-            case "Voiture":
-                batSingleton.getVoiture();
-                break;
-            default:
-                throw new IllegalArgumentException("Unexpected value: " + string);
-        }
+    @Then("the superhero's power should be {string}")
+    public void the_superhero_s_power_should_be(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
     }
-    @Then("I should get the instance of {String} with the name {String}")
-    public void i_should_get_the_instance_of_with_the_name(String string, String string2) {
-        switch (string) {
-            case "SuperHero":
-                assertSame("Batman", batSingleton.getSuperHero().getNom());
-                break;
-            case "Voiture":
-                assertSame("Batmobile", batSingleton.getVoiture().getOwner());
-                break;
-            default:
-                throw new IllegalArgumentException("Unexpected value: " + string);
-        }
+    @Then("the superhero's level should be {int}")
+    public void the_superhero_s_level_should_be(Integer int1) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
     }
-
-    @Given("the instance of BatSingleton has been retrieved")
-    public void the_instance_of_bat_singleton_has_been_retrieved() {
-        batSingleton = BatSingleton.getInstance();
-        assertSame(batSingleton, BatSingleton.getInstance());
+    @When("I get the car")
+    public void i_get_the_car() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
     }
-    @When("I retrieve the {String} from BatSingleton")
-    public void i_retrieve_the_from_bat_singleton(String string) {
-        switch (string) {
-            case "SuperHero":
-                batSingleton.getSuperHero();
-                break;
-            case "Voiture":
-                batSingleton.getVoiture();
-                break;
-            default:
-                throw new IllegalArgumentException("Unexpected value: " + string);
-        }
+    @Then("the car's owner should be {string}")
+    public void the_car_s_owner_should_be(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
     }
-    @Then("I should get the instance of {String} with the owner {String}")
-    public void i_should_get_the_instance_of_with_the_owner(String string, String string2) {
-        switch (string) {
-            case "SuperHero":
-                assertSame("Batman", batSingleton.getSuperHero().getNom());
-                break;
-            case "Voiture":
-                assertSame("Batmobile", batSingleton.getVoiture().getOwner());
-                break;
-            default:
-                throw new IllegalArgumentException("Unexpected value: " + string);
-        }
+    @Then("the car's year should be {int}")
+    public void the_car_s_year_should_be(Integer int1) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
     }
-
 }
