@@ -1,4 +1,4 @@
-Feature: BatSingleton
+Feature: US_004 - BatSingleton
 
   Scenario Outline: Verify the functionality of BatSingleton
     Given the BatSingleton instance is created

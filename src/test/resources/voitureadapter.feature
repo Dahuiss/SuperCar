@@ -1,4 +1,4 @@
-Feature: Superhero Car adapter
+Feature:US_005 - Superhero Car adapter
 
   As a user
   I want to be able to control a car adapted for a superhero

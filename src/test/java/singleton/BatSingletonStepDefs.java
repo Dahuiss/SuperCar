@@ -4,10 +4,10 @@ import car.voiture.Voiture;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.jupiter.api.Assertions;
 import superhero.SuperHero;
 
-public class BatSingletonStepsDefs {
+
+public class BatSingletonStepDefs {
     private BatSingleton instance;
     private SuperHero superhero;
     private Voiture car;
