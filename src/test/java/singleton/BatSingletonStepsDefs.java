@@ -41,24 +41,68 @@ public class BatSingletonStepsDefs {
         assertEquals(superHeroName, superHero.getNom());
     }
 
-    @Then("the super hero's power should be {string}")
-    public void assertSuperHeroPower(String superHeroPower) {
-        assertEquals(superHeroPower, superHero.getPouvoir());
+    @Given("an instance of BatSingleton has been retrieved before")
+    public void an_instance_of_bat_singleton_has_been_retrieved_before() {
+        batSingleton = BatSingleton.getInstance();
+        assertSame(batSingleton, BatSingleton.getInstance());
+    }
+    @When("I retrieve {String} from BatSingleton")
+    public void i_retrieve_from_bat_singleton(String string) {
+        switch (string) {
+            case "SuperHero":
+                batSingleton.getSuperHero();
+                break;
+            case "Voiture":
+                batSingleton.getVoiture();
+                break;
+            default:
+                throw new IllegalArgumentException("Unexpected value: " + string);
+        }
+    }
+    @Then("I should get the instance of {String} with the name {String}")
+    public void i_should_get_the_instance_of_with_the_name(String string, String string2) {
+        switch (string) {
+            case "SuperHero":
+                assertSame("Batman", batSingleton.getSuperHero().getNom());
+                break;
+            case "Voiture":
+                assertSame("Batmobile", batSingleton.getVoiture().getOwner());
+                break;
+            default:
+                throw new IllegalArgumentException("Unexpected value: " + string);
+        }
     }
 
-    @Then("the super hero's level should be {int}")
-    public void assertSuperHeroLevel(int superHeroLevel) {
-        assertEquals(superHeroLevel, superHero.getNiveau());
+    @Given("the instance of BatSingleton has been retrieved")
+    public void the_instance_of_bat_singleton_has_been_retrieved() {
+        batSingleton = BatSingleton.getInstance();
+        assertSame(batSingleton, BatSingleton.getInstance());
     }
-
-    @When("getting the voiture")
-    public void getVoiture() {
-        voiture = batSingleton.getVoiture();
+    @When("I retrieve the {String} from BatSingleton")
+    public void i_retrieve_the_from_bat_singleton(String string) {
+        switch (string) {
+            case "SuperHero":
+                batSingleton.getSuperHero();
+                break;
+            case "Voiture":
+                batSingleton.getVoiture();
+                break;
+            default:
+                throw new IllegalArgumentException("Unexpected value: " + string);
+        }
     }
-
-    @Then("the voiture should be {string}")
-        public void assertVoitureName(String voitureName) {
-        assertEquals(voitureName, voiture.getOwner());
+    @Then("I should get the instance of {String} with the owner {String}")
+    public void i_should_get_the_instance_of_with_the_owner(String string, String string2) {
+        switch (string) {
+            case "SuperHero":
+                assertSame("Batman", batSingleton.getSuperHero().getNom());
+                break;
+            case "Voiture":
+                assertSame("Batmobile", batSingleton.getVoiture().getOwner());
+                break;
+            default:
+                throw new IllegalArgumentException("Unexpected value: " + string);
+        }
     }
 
     @Then("the voiture's owner should be {string}")
