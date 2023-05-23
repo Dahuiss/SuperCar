@@ -1,16 +1,7 @@
-Feature: US_004 - BatSingleton
+Feature: US_OO3 - Vérifier qu'on instancie correctement
 
-  Scenario Outline: Verify the functionality of BatSingleton
-    Given the BatSingleton instance is created
-    When I get the superhero
-    Then the superhero's name should be "<superheroName>"
-    And the superhero's power should be "<superheroPower>"
-    And the superhero's level should be <superheroLevel>
+  Scenario: Verifier les details du superhero Batman
+    Given un objet de type SuperHero
+    When je demande les informations du superhero Batman
+    Then Je dois avoir le nom "<nom>" et le pouvoir "<pouvoir>" et le niveau "<niveau>"
 
-    When I get the car
-    Then the car's owner should be "<carOwner>"
-    And the car's year should be <carYear>
-
-    Examples:
-      | superheroName | superheroPower | superheroLevel | carOwner  | carYear |
-      | Batman        | Voler          | 10000          | Batmobile | 2022    |
