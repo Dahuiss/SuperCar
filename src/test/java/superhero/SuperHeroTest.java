@@ -52,7 +52,21 @@ public class SuperHeroTest
     {
         assertEquals("Toile d'araignée", hero.getPouvoir());
     }
-    
+
+
+    @Test
+    public void testSetPouvoir() {
+        String newPouvoir = "Super Force";
+        hero.setPouvoir(newPouvoir);
+        assertEquals(newPouvoir, hero.getPouvoir());
+    }
+
+    @Test
+    public void testSetNiveau() {
+        int newNiveau = 20;
+        hero.setNiveau(newNiveau);
+        assertEquals(newNiveau, hero.getNiveau());
+    }
      /**
      * Supprime les engagements
      *
