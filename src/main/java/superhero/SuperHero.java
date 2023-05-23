@@ -50,4 +50,12 @@ public class SuperHero {
     public int getNiveau() {
         return niveau;
     }
+
+    public void setPouvoir(String newSuperHeroPower) {
+        this.pouvoir = newSuperHeroPower;
+    }
+
+    public void setNiveau(int newSuperHeroLevel) {
+        this.niveau = newSuperHeroLevel;
+    }
 }

@@ -1,26 +1,40 @@
-Feature: Accessing Batman's Superhero and Batmobile
+Feature: BatSingleton
 
-  Scenario Outline: Retrieve Batman's Superhero and Batmobile
-    Given the BatSingleton instance is available
-    When I retrieve the Superhero object from the BatSingleton
-    Then the Superhero's name should be "Batman"
-    And the Superhero's power should be "Voler"
-    And the Superhero's level should be 10000
-    And I retrieve the Batmobile object from the BatSingleton
-    Then the Batmobile's owner should be "Batmobile"
-    And the Batmobile's manufacturing year should be 2022
+  Scenario Outline: Get instance should return the same instance
+    Given a BatSingleton instance
+    When getting the instance multiple times
+    Then the same instance should be returned
 
-    Examples:
-      | Description                               |
-      | Retrieve Batman's details from singleton  |
-      | Retrieve Batmobile details from singleton |
-
-  Scenario Outline: Ensure Singleton instance is the same
-    Given multiple instances of BatSingleton are created
-    When I retrieve the instance of BatSingleton from different objects
-    Then all instances should refer to the same object
+  Scenario Outline: Get super hero should return <SuperHeroName>
+    Given a BatSingleton instance
+    When getting the super hero
+    Then the super hero should be <SuperHeroName>
+    And the super hero's power should be "<SuperHeroPower>"
+    And the super hero's level should be <SuperHeroLevel>
 
     Examples:
-      | Description                                         |
-      | Retrieve BatSingleton instance multiple times       |
-      | Access BatSingleton instance from different objects |
+      | SuperHeroName | SuperHeroPower | SuperHeroLevel |
+      | Batman        | Voler          | 10000          |
+
+  Scenario Outline: Get voiture should return <VoitureName>
+    Given a BatSingleton instance
+    When getting the voiture
+    Then the voiture should be <VoitureName>
+    And the voiture's owner should be "<VoitureOwner>"
+    And the voiture's year should be <VoitureYear>
+
+    Examples:
+      | VoitureName | VoitureOwner | VoitureYear |
+      | Batmobile   | Batmobile    | 2022        |
+
+  Scenario Outline: Update super hero should update super hero properties
+    Given a BatSingleton instance
+    And the super hero is <SuperHeroName>
+    When updating the super hero's power to "<NewSuperHeroPower>"
+    And updating the super hero's level to <NewSuperHeroLevel>
+    Then the super hero's power should be "<NewSuperHeroPower>"
+    And the super hero's level should be <NewSuperHeroLevel>
+
+    Examples:
+      | SuperHeroName | NewSuperHeroPower | NewSuperHeroLevel |
+      | Batman        | Invisibilité     | 15000            |

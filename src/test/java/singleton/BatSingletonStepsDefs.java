@@ -1,78 +1,94 @@
 package singleton;
 
+
 import car.voiture.Voiture;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import singleton.BatSingleton;
 import superhero.SuperHero;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertSame;
 
 public class BatSingletonStepsDefs {
     private BatSingleton batSingleton;
-    private SuperHero retrievedSuperhero;
-    private Voiture retrievedBatmobile;
+    private SuperHero superHero;
+    private Voiture voiture;
 
-    @Given("the BatSingleton instance is available")
-    public void theBatSingletonInstanceIsAvailable() {
+    @Given("a BatSingleton instance")
+    public void createBatSingletonInstance() {
         batSingleton = BatSingleton.getInstance();
     }
 
-    @When("I retrieve the Superhero object from the BatSingleton")
-    public void iRetrieveTheSuperheroObjectFromTheBatSingleton() {
-        retrievedSuperhero = batSingleton.getSuperHero();
+    @When("getting the instance multiple times")
+    public void getInstanceMultipleTimes() {
+        // No action required, the instance is already created
     }
 
-    @Then("the Superhero's name should be {string}")
-    public void theSuperheroNameShouldBe(String expectedName) {
-        assertEquals(expectedName, retrievedSuperhero.getNom());
-    }
-
-    @Then("the Superhero's power should be {string}")
-    public void theSuperheroPowerShouldBe(String expectedPower) {
-        assertEquals(expectedPower, retrievedSuperhero.getPouvoir());
-    }
-
-    @Then("the Superhero's level should be {int}")
-    public void theSuperheroLevelShouldBe(int expectedLevel) {
-        assertEquals(expectedLevel, retrievedSuperhero.getNiveau());
-    }
-
-    @When("I retrieve the Batmobile object from the BatSingleton")
-    public void iRetrieveTheBatmobileObjectFromTheBatSingleton() {
-        retrievedBatmobile = batSingleton.getVoiture();
-    }
-
-    @Then("the Batmobile's owner should be {string}")
-    public void theBatmobileOwnerShouldBe(String expectedOwner) {
-        assertEquals(expectedOwner, retrievedBatmobile.getOwner());
-    }
-
-    @Then("the Batmobile's manufacturing year should be {int}")
-    public void theBatmobileManufacturingYearShouldBe(int expectedYear) {
-        assertEquals(expectedYear, retrievedBatmobile.getAnnee());
-    }
-
-    @Given("multiple instances of BatSingleton are created")
-    public void multipleInstancesOfBatSingletonAreCreated() {
+    @Then("the same instance should be returned")
+    public void assertSameInstanceReturned() {
         BatSingleton instance1 = BatSingleton.getInstance();
         BatSingleton instance2 = BatSingleton.getInstance();
-        assertSame(instance1, instance2);
+        assertEquals(instance1, instance2);
     }
 
-    @When("I retrieve the instance of BatSingleton from different objects")
-    public void iRetrieveTheInstanceOfBatSingletonFromDifferentObjects() {
-        BatSingleton instance1 = BatSingleton.getInstance();
-        BatSingleton instance2 = BatSingleton.getInstance();
-        assertSame(instance1, instance2);
+    @When("getting the super hero")
+    public void getSuperHero() {
+        superHero = batSingleton.getSuperHero();
     }
 
-    @Then("all instances should refer to the same object")
-    public void allInstancesShouldReferToTheSameObject() {
-        BatSingleton instance1 = BatSingleton.getInstance();
-        BatSingleton instance2 = BatSingleton.getInstance();
-        assertSame(instance1, instance2);
+    @Then("the super hero should be {string}")
+    public void assertSuperHeroName(String superHeroName) {
+        assertEquals(superHeroName, superHero.getNom());
+    }
+
+    @Then("the super hero's power should be {string}")
+    public void assertSuperHeroPower(String superHeroPower) {
+        assertEquals(superHeroPower, superHero.getPouvoir());
+    }
+
+    @Then("the super hero's level should be {int}")
+    public void assertSuperHeroLevel(int superHeroLevel) {
+        assertEquals(superHeroLevel, superHero.getNiveau());
+    }
+
+    @When("getting the voiture")
+    public void getVoiture() {
+        voiture = batSingleton.getVoiture();
+    }
+
+    @Then("the voiture should be {string}")
+        public void assertVoitureName(String voitureName) {
+        assertEquals(voitureName, voiture.getOwner());
+    }
+
+    @Then("the voiture's owner should be {string}")
+    public void assertVoitureOwner(String voitureOwner) {
+        assertEquals(voitureOwner, voiture.getOwner());
+    }
+
+    @Then("the voiture's year should be {int}")
+    public void assertVoitureYear(int voitureYear) {
+        assertEquals(voitureYear, voiture.getAnnee());
+    }
+
+    @When("updating the super hero's power to {string}")
+    public void updateSuperHeroPower(String newSuperHeroPower) {
+        superHero.setPouvoir(newSuperHeroPower);
+    }
+
+    @When("updating the super hero's level to {int}")
+    public void updateSuperHeroLevel(int newSuperHeroLevel) {
+        superHero.setNiveau(newSuperHeroLevel);
+    }
+
+    @Then("the super hero's power should be {string}")
+    public void assertNewSuperHeroPower(String newSuperHeroPower) {
+        assertEquals(newSuperHeroPower, superHero.getPouvoir());
+    }
+
+    @Then("the super hero's level should be {int}")
+    public void assertNewSuperHeroLevel(int newSuperHeroLevel) {
+        assertEquals(newSuperHeroLevel, superHero.getNiveau());
     }
 }
+
