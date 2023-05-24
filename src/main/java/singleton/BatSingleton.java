@@ -1,16 +1,18 @@
 package singleton;
 
+import adapter.VoitureAdapter;
 import car.voiture.Voiture;
+import superhero.Batman;
 import superhero.SuperHero;
 
 public class BatSingleton {
     private static BatSingleton instance;
-    private SuperHero superHero;
-    private Voiture voiture;
+    private Batman batman;
+    private VoitureAdapter batmobile;
 
     private BatSingleton() {
-        superHero = new SuperHero("Batman", "Voler", 10000);
-        voiture = new Voiture("Batmobile", 2022);
+        batman = Batman.creationBatman();
+        batmobile = new VoitureAdapter(batman);
     }
 
     public static BatSingleton getInstance() {
@@ -24,11 +26,11 @@ public class BatSingleton {
         return instance;
     }
 
-    public SuperHero getSuperHero() {
-        return superHero;
+    public Batman getBatman() {
+        return batman;
     }
 
-    public Voiture getVoiture() {
-        return voiture;
+    public VoitureAdapter getVoiture() {
+        return batmobile;
     }
 }

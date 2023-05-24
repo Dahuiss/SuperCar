@@ -33,7 +33,7 @@ public class BatSingletonStepsDefs {
     public void i_retrieve_from_bat_singleton(String string) {
         switch (string) {
             case "SuperHero":
-                batSingleton.getSuperHero();
+                batSingleton.getBatman();
                 break;
             case "Voiture":
                 batSingleton.getVoiture();
@@ -46,7 +46,7 @@ public class BatSingletonStepsDefs {
     public void i_should_get_the_instance_of_with_the_name(String string, String string2) {
         switch (string) {
             case "SuperHero":
-                assertSame("Batman", batSingleton.getSuperHero().getNom());
+                assertSame("Batman", batSingleton.getBatman().getNom());
                 break;
             case "Voiture":
                 assertSame("Batmobile", batSingleton.getVoiture().getOwner());
@@ -65,7 +65,7 @@ public class BatSingletonStepsDefs {
     public void i_retrieve_the_from_bat_singleton(String string) {
         switch (string) {
             case "SuperHero":
-                batSingleton.getSuperHero();
+                batSingleton.getBatman();
                 break;
             case "Voiture":
                 batSingleton.getVoiture();
@@ -78,7 +78,7 @@ public class BatSingletonStepsDefs {
     public void i_should_get_the_instance_of_with_the_owner(String string, String string2) {
         switch (string) {
             case "SuperHero":
-                assertSame("Batman", batSingleton.getSuperHero().getNom());
+                assertSame("Batman", batSingleton.getBatman().getNom());
                 break;
             case "Voiture":
                 assertSame("Batmobile", batSingleton.getVoiture().getOwner());

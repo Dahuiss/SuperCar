@@ -6,6 +6,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import superhero.SuperHero;
 
+import java.time.Year;
+
 public class VoitureAdapterTest {
 
     @Test
@@ -14,7 +16,7 @@ public class VoitureAdapterTest {
         VoitureAdapter voitureAdapter = new VoitureAdapter(superHero);
 
         String expectedOwner = "John Doe-mobile";
-        int expectedAnnee = 10;
+        int expectedAnnee = superHero.getNiveau();
         boolean expectedHeroInside = false;
 
         Assert.assertEquals(expectedOwner, voitureAdapter.getOwner());
