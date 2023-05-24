@@ -39,5 +39,4 @@ public class VoitureAdapter extends Voiture {
         }
     }
 
-
 }

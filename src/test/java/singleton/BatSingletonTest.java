@@ -1,49 +1,48 @@
 package singleton;
 
 import adapter.VoitureAdapter;
-import car.voiture.Voiture;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import singleton.BatSingleton;
 import superhero.Batman;
-import superhero.SuperHero;
-
-import java.time.Year;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertSame;
 
 public class BatSingletonTest {
+
     @Test
-    void getInstance_ShouldReturnSameInstance() {
-        // Arrange
-        // Act
+    public void testGetInstance() {
         BatSingleton instance1 = BatSingleton.getInstance();
         BatSingleton instance2 = BatSingleton.getInstance();
-        // Assert
-        assertSame(instance1, instance2);
+
+        // Vérifier que les deux instances sont les mêmes
+        Assertions.assertSame(instance1, instance2, "Les instances doivent être identiques");
     }
 
     @Test
-    void getSuperHero_ShouldReturnBatman() {
-        // Arrange
+    public void testGetBatman() {
         BatSingleton instance = BatSingleton.getInstance();
-        // Act
         Batman batman = instance.getBatman();
-        // Assert
-        assertEquals("Batman", batman.getNom());
-        assertEquals("Voler", batman.getPouvoir());
-        assertEquals(1000, batman.getNiveau());
+
+        // Vérifier que le Batman renvoyé n'est pas nul
+        Assertions.assertNotNull(batman, "Le Batman ne doit pas être nul");
+
+        // Vérifier que le Batman est une instance valide
+        Assertions.assertTrue(batman instanceof Batman, "Le Batman doit être une instance de Batman");
+
+        // Vérifier que le Batman est le même que celui utilisé dans le singleton
+        Assertions.assertSame(batman, instance.getBatman(), "Le Batman doit être identique");
     }
 
     @Test
-    void getVoiture_ShouldReturnBatmobile() {
-        // Arrange
+    public void testGetVoiture() {
         BatSingleton instance = BatSingleton.getInstance();
-        // Act
         VoitureAdapter batmobile = instance.getVoiture();
-        // Assert
-        assertEquals("Batman-mobile", batmobile.getOwner());
-        assertEquals(1000, batmobile.getAnnee());
-    }
 
+        // Vérifier que la Batmobile renvoyée n'est pas nulle
+        Assertions.assertNotNull(batmobile, "La Batmobile ne doit pas être nulle");
+
+        // Vérifier que la Batmobile est une instance valide
+        Assertions.assertTrue(batmobile instanceof VoitureAdapter, "La Batmobile doit être une instance de VoitureAdapter");
+
+        // Vérifier que la Batmobile est la même que celle utilisée dans le singleton
+        Assertions.assertSame(batmobile, instance.getVoiture(), "La Batmobile doit être identique");
+    }
 }

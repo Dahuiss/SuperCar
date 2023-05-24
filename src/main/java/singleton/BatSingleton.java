@@ -10,7 +10,7 @@ public class BatSingleton {
     private Batman batman;
     private VoitureAdapter batmobile;
 
-    private BatSingleton() {
+    protected BatSingleton() {
         batman = Batman.creationBatman();
         batmobile = new VoitureAdapter(batman);
     }
