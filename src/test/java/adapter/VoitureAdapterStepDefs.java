@@ -3,13 +3,12 @@ package adapter;
 
 import static org.junit.Assert.*;
 
-import adapter.VoitureAdapter;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import superhero.SuperHero;
 
-public class VoitureAdapterStepsDefs {
+public class VoitureAdapterStepDefs {
 
     private SuperHero superHero;
     private VoitureAdapter voitureAdapter;

@@ -45,4 +45,5 @@ public class BatSingletonTest {
         assertEquals("Batman-mobile", batmobile.getOwner());
         assertEquals(1000, batmobile.getAnnee());
     }
+
 }

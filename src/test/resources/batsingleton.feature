@@ -1,26 +1,15 @@
-Feature: BatSingleton
+Feature: Batman Singleton
 
-  Scenario : Retrieve instance of BatSingleton
-    Given no instance of BatSingleton has been retrieved before
-    When I retrieve the instance of BatSingleton
-    Then I should get the same instance each time
+  Scenario Outline: Verify instantiated SuperHero and Voiture
+    Given I instantiate a BatSingeton
+    When I request the instantiated SuperHero
+    Then the SuperHero should have the name "<name>"
+    And the SuperHero should have the power "<power>"
+    And the SuperHero should have the level <level>
+    When I request the instantiated Voiture
+    Then the Voiture should have the owner "<owner>"
+    And the Voiture should have the year <year>
 
-  Scenario Outline: Retrieve Batman from BatSingleton
-    Given an instance of BatSingleton has been retrieved
-    When I retrieve <superHero> from BatSingleton
-    Then I should get the instance of <superHero> with the name "<name>"
-
-    Examples:
-      | superHero  | name   |
-      | Batman     | Batman |
-      | Superwoman | Diana  |
-
-  Scenario Outline: Retrieve Batmobile from BatSingleton
-    Given the instance of BatSingleton has been retrieved
-    When I retrieve the <vehicle> from BatSingleton
-    Then I should get the instance of the <vehicle> with the owner "<owner>"
-
-    Examples:
-      | vehicle    | owner     |
-      | Batmobile  | Batman    |
-      | Jet        | Superman  |
+  Examples:
+    | name   | power   | level  | owner     | year |
+    | Batman | Voler   | 10000  | Batmobile | 2022 |
