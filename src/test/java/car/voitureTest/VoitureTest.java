@@ -40,7 +40,6 @@ public class VoitureTest {
     {
         //Libérez ici les ressources engagées par setUp()
     }
-
     @Test
     public void testVoitureAge() {
         Voiture Honda = new Voiture("Ali", 1977);
@@ -58,5 +57,11 @@ public class VoitureTest {
     public void testVoitureAnnee() {
         Voiture Mercedes_AMG = new Voiture("Gio", 2005);
         assertEquals(2005, Mercedes_AMG.getAnnee());
+    }
+
+    @Test
+    public void testVoitureToString() {
+        Voiture Mercedes_AMG = new Voiture("Gio", 2005);
+        assertEquals("La voiture de Gio a 18", Mercedes_AMG.toString());
     }
 }

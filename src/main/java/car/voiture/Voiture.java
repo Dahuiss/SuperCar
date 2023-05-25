@@ -1,7 +1,6 @@
 package car.voiture;
 /**
  * Décrivez votre classe Voiture ici.
- *
  * @author Ali & Giovanni
  * @version 17/04/2023
  **/
@@ -52,8 +51,8 @@ public class Voiture {
 
     // Méthode pour calculer l'âge de la voiture
     public int getAge() {
-        int age = LocalDate.now().getYear() - annee; // Obtenir l'année actuelle et la soustraire à l'année de la voiture
-        return age; // Renvoyer l'âge de la voiture
+        return  LocalDate.now().getYear() - annee; // Obtenir l'année actuelle et la soustraire à l'année de la voiture
+
     }
 
     //Renvoie une chaîne de caractère pour les détails.
